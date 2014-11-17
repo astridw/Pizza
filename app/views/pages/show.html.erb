@@ -1,0 +1,14 @@
+<h1>Pages#show</h1>
+<p>Look at my Map!!!</p>
+
+
+<div id="map"></div>
+<script>
+$(window).ready(function)(){
+<% @places.each do |place| %>
+L.marker([<%= place.lat %>, <%= place.lng %>])
+.addTo(window.map)
+.bindPopup("<b><%=place.name %></b>");
+<% end %>
+});
+</script>
